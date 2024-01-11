@@ -4,15 +4,11 @@ import (
 	"encoding/json"
 	"fmt"
 	"net/http"
-	"os"
 	"regexp"
 	"server-1/pkg/messages"
 )
 
 func main() {
-	file, _ := os.Create("DataBase/test.json")
-	file.Close()
-
 	store := messages.NewFileStore("DataBase/test.json")
 	messageHandler := NewMessageHandler(store)
 	mux := http.NewServeMux()
